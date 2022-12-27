@@ -25,18 +25,26 @@
                     <div class="container">
                         <h1 class><%= title %></h1>
                         
-                        <% if(action == 'query') { %>
-            
-                        <div class="card">
-                            <div class="card-header">Input</div>
-                            <div class="card-body">
-                                <form action="/query" method="get">
-                                    <label for="userInput">Enter search term:</label><br>
-                                    <input type="text" id="userInput" name="userInput"><br>
-                                    <input type="submit" value="Submit">
-                                  </form>
+                        <% if(action == 'add') { %>
+                            <div class="card">
+                                <div class="card-header">Sample Form</div>
+                                <div class="card-body">
+                                    <form method="POST" action="sample_data/result">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label>Price</label>
+                                                    <input type="text" name="value" id="value" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input type="submit" name="submit_button" class="btn btn-primary" value="Add" />
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
 
                         <% } else if(action == 'ask') { %>
 
@@ -84,6 +92,53 @@
                                 </div>
                                 <a class="navigate" href="javascript:history.back()"><button>Main Page</button></a>
                             </div>
+
+                            <% } else if(action == 'query') { %>
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col"></div>
+                                            <div class="col"></div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table1">
+                                                <tr>
+                                                    <th>Symbol</th>
+                                                    <th>Date</th>
+                                                    <th>Price</th>
+                                                    <th>Price Change 24Hr</th>
+                                                </tr>
+                                                <%
+                                                if(sampleData.length > 0)
+                                                {
+                                                    sampleData.forEach(function(data){
+                                                %>
+                                                <tr>
+                                                    <td><%= data.symbol %></td>
+                                                    <td><%= data.date %></td>
+                                                    <td><%= data.price %></td>
+                                                    <td><%= data.priceChange24hr %></td>
+                                                </tr>
+                                                <%
+                                                    });
+                                                }
+                                                else
+                                                {
+                                                %>
+                                                <tr>
+                                                    <td colspan="5">No Data Found</td>
+                                                </tr>
+                                                <%
+                                                }
+                                                %>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <a class="navigate" href="javascript:history.back()"><button>Main Page</button></a>
+                                </div>
             
                         <% } else { %>
                             
@@ -130,7 +185,16 @@
                                 </div>
                             </div>
                             <a class="navigate" href="sample_data/anomaly"><button>Anomalies</button></a>
-                            <a class="navigate" href="sample_data/query"><button>Select a Pair</button></a>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Price</label>
+                                    <input type="text" name="userinput" id="userinput" class="form-control" />
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="submit" name="submit_button" class="btn btn-primary" value="Add" />
+                                </div>
+                            </div>
                         </div>
             
                         <% } %>
