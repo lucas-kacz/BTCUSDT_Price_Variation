@@ -17,3 +17,6 @@ The anomalies are directly filled with the Bash script whenever he retrieves a n
 To see all the reported anomalies, simply click on the Anomalies button at the bottom of the table. A new page should open.
 ![AnomaliesPNG](https://user-images.githubusercontent.com/113424948/209707776-02168ee3-566b-49dd-85f4-819dfce531c1.PNG)
 
+## Anomalies
+
+The Bitcoin price isn't moving very much nowadays so I hardcoded a 10% change in the price to show that the anomaly detection works well.
