@@ -19,4 +19,4 @@ To see all the reported anomalies, simply click on the Anomalies button at the b
 
 ## Anomalies
 
-The Bitcoin price isn't moving very much nowadays so I hardcoded a 10% change in the price to show that the anomaly detection works well.
+The Bitcoin price isn't moving very much nowadays so I hardcoded a more than 10% change in the price to show that the anomaly detection works well.
